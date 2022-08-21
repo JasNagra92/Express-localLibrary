@@ -22,6 +22,10 @@ AuthorSchema
         return fullname
     });
 
+AuthorSchema
+    .virtual('url')
+    .get(()=>{
+        return `/catalog/author/${this._id}`
+    })
 
-
-module.exports = AuthorSchema
+module.exports = mongoose.model('Author', AuthorSchema)
