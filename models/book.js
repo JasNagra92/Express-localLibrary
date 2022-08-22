@@ -1,5 +1,4 @@
 const mongoose = require('mongoose')
-const { schema } = require('./author')
 const Schema = mongoose.Schema
 
 const BookSchema = new Schema({
@@ -12,7 +11,7 @@ const BookSchema = new Schema({
 
 BookSchema
     .virtual('url')
-    .get(()=>{
+    .get(function(){
         return `/catalog/book/ + ${this._id}`;
     })
 
